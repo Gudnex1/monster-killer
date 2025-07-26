@@ -1,19 +1,21 @@
 const variableMonsterHealth = document.getElementById('mon-health');
 const monsterHealthButton = document.getElementById("monsterButton");
-const attacValue = 10;
+const attackInput = document.getElementById("attack-input");
+const attacValue = Number(attackInput.value);
 const strongAttackValue = 30;
 
-let decidedMonsterHealth = getUsernoInput();
-let chosenMaxlife = decidedMonsterHealth;
-let currentMonsterHealth = chosenMaxlife;
-let currentPlayerHealth = chosenMaxlife;
+const decidedMonsterHealth = getUsernoInput();
+// let chosenMaxlife = decidedMonsterHealth;
+// let currentMonsterHealth = chosenMaxlife;
+// let currentPlayerHealth = chosenMaxlife;
 
 
-adjustHealthBars(decidedMonsterHealth);
 
 function getUsernoInput() {
-    console.log(variableMonsterHealth.value);
-    return parseInt(variableMonsterHealth.value);
+    const life = Number(variableMonsterHealth.value);
+    adjustHealthBars(life);
+    // console.log(typeof(life));
+    return life;
 }
 
 function attactHandler() {
