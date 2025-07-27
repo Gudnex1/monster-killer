@@ -1,36 +1,36 @@
-const variableMonsterHealth = document.getElementById('mon-health');
+const variableMonsterHealth = document.getElementById("mon-health");
 const monsterHealthButton = document.getElementById("monsterButton");
 const attackInput = document.getElementById("attack-input");
-const attacValue = Number(attackInput.value);
+let attacValue;
 const strongAttackValue = 30;
+let life = 0;
 
-const decidedMonsterHealth = getUsernoInput();
-// let chosenMaxlife = decidedMonsterHealth;
-// let currentMonsterHealth = chosenMaxlife;
-// let currentPlayerHealth = chosenMaxlife;
-
-
+let decidedMonsterHealth;
+let chosenMaxlife = decidedMonsterHealth;
+let currentMonsterHealth = chosenMaxlife;
+let currentPlayerHealth = chosenMaxlife;
 
 function getUsernoInput() {
-    const life = Number(variableMonsterHealth.value);
-    adjustHealthBars(life);
-    // console.log(typeof(life));
-    return life;
+  life = Number(variableMonsterHealth.value);
+  adjustHealthBars(life);
+  decidedMonsterHealth = life;
+  return life;
 }
 
 function attactHandler() {
-    const damage = dealMonsterDamage(attacValue);
-    decidedMonsterHealth -= damage;
-    if (decidedMonsterHealth <= 0) {
-        alert('You Won')
-    }
+  attacValue = Number(attackInput.value);
+  let damage = dealMonsterDamage(attacValue);
+  decidedMonsterHealth -= damage;
+  if (decidedMonsterHealth <= 0) {
+    alert("You Won");
+  }
 }
 
 function attactHandlers() {
-  const damage = dealMonsterDamage(strongAttackValue);
+  let damage = dealMonsterDamage(strongAttackValue);
   currentMonsterHealth -= damage;
 }
 
-attackBtn.addEventListener('click', attactHandler)
+attackBtn.addEventListener("click", attactHandler);
 strongAttackBtn.addEventListener("click", attactHandlers);
-monsterHealthButton.addEventListener('click', getUsernoInput)
+monsterHealthButton.addEventListener("click", getUsernoInput);
